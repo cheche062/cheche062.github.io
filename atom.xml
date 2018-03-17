@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CheChe的博客</title>
+  <icon>https://www.gravatar.com/avatar/728b28001cd1a0f4b7d79339344cc096</icon>
+  <subtitle>吃得苦中苦 心里会更堵</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="//litten.me/"/>
+  <updated>2018-03-17T03:41:54.759Z</updated>
+  <id>//litten.me/</id>
+  
+  <author>
+    <name>cheche</name>
+    <email>yoojunglee@126.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hejianbo</title>
+    <link href="//litten.me/2018/03/17/hejianbo/"/>
+    <id>//litten.me/2018/03/17/hejianbo/</id>
+    <published>2018-03-17T03:40:54.000Z</published>
+    <updated>2018-03-17T03:41:54.759Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>hejianbo</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;hejianbo&lt;/strong&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="web前端" scheme="//litten.me/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="javascript" scheme="//litten.me/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My Home</title>
+    <link href="//litten.me/2018/03/17/my_home/"/>
+    <id>//litten.me/2018/03/17/my_home/</id>
+    <published>2018-03-17T02:19:02.209Z</published>
+    <updated>2018-03-17T02:19:02.209Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Hejianbo</li><li>Liumeihao</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;Hejianbo&lt;/li&gt;
+&lt;li&gt;Liumeihao&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="生活类" scheme="//litten.me/categories/%E7%94%9F%E6%B4%BB%E7%B1%BB/"/>
+    
+    
+      <category term="有趣" scheme="//litten.me/tags/%E6%9C%89%E8%B6%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TVXQ</title>
+    <link href="//litten.me/2018/03/17/tvxq/"/>
+    <id>//litten.me/2018/03/17/tvxq/</id>
+    <published>2018-03-17T02:19:02.209Z</published>
+    <updated>2018-03-17T02:19:02.209Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/five.jpg" alt="2005"></p><ul><li>uknow</li><li>max</li><li>xia</li><li>hero</li><li>micky</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/five.jpg&quot; alt=&quot;2005&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;uknow&lt;/li&gt;
+&lt;li&gt;max&lt;/li&gt;
+&lt;li&gt;xia&lt;/li&gt;
+&lt;li&gt;hero&lt;/li&gt;
+&lt;li&gt;micky&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="音乐类" scheme="//litten.me/categories/%E9%9F%B3%E4%B9%90%E7%B1%BB/"/>
+    
+    
+      <category term="艺人" scheme="//litten.me/tags/%E8%89%BA%E4%BA%BA/"/>
+    
+      <category term="舞蹈" scheme="//litten.me/tags/%E8%88%9E%E8%B9%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>谷歌调试·三脚猫</title>
+    <link href="//litten.me/2018/03/09/chrome-debug/"/>
+    <id>//litten.me/2018/03/09/chrome-debug/</id>
+    <published>2018-03-09T06:59:04.000Z</published>
+    <updated>2018-03-17T02:19:02.193Z</updated>
+    
+    <content type="html"><![CDATA[<p>网上也有很多关于调试的技巧，小编断断续续也看过不少，可能由于技术以及所遇场景有限，很多技巧看完就忘了。能记住的也就是平时经常用的一些小技巧，废话少说直接来！</p><a id="more"></a><h3 id="1-搜索search："><a href="#1-搜索search：" class="headerlink" title="1.搜索search："></a>1.搜索search：</h3><p><img src="/images/debug/1.png" alt="search_img"><br>首先我需要快速的定位到我需要调试的代码处，谷歌<code>f12</code>调出开发者调试工具，底部如果压根没看到<code>底部栏</code>, <code>Esc</code>按钮快速切换底部导航栏的显示与隐藏，如果未看到<code>search栏</code>则在上图第一个箭头打开它，右侧的两个复选框</p><ul><li><code>Ignore case</code>     忽略大小写</li><li><code>Regular expression</code>  正则匹配</li></ul><p>输入关键词回车后，搜索栏会以风速展示与输入的关键词匹配到的全步代码，快到没朋友！直接点击想要去的那一行代码，鼠标焦点也帮你定位到源码。如下图：<br><img src="/images/debug/2.png" alt="search_img"></p><h3 id="2-断点breakpoint："><a href="#2-断点breakpoint：" class="headerlink" title="2.断点breakpoint："></a>2.断点breakpoint：</h3><p><img src="/images/debug/3.png" alt="breakpoint_img"><br>打断点是调试的最重要手段，当程序出现问题，首先想到的就是跟着程序走，一步一步看程序的变化，问题到底在哪一步。<br>点击<code>A</code>处的任意行即可生成断点，再次点击即可清除该断点。<br>也可以右击进入选择栏添加和移除（麻烦）</p><p><strong>一个酷的功能: </strong><code>Add conditional breakpoint</code>添加条件语句，只有当输入的条件语句为<code>true</code>时才会停住。<br><strong>有个坑：</strong><code>Blackbox script</code>不要点，否则断点就玩不了了。 </p><p><strong>注意：</strong><br>新手会疑惑，我断点打在这了，程序执行为什么没有停在这，要知道你是页面已经加载完再打的断点还有毛用，所以你打完断点再<code>f5</code>刷新页面即可，让js重新执行到你断点处即可。<br>对于某个还未执行的函数，比如某个响应事件可以打完断点后再去鼠标点击页面元素，然后响应该事件进入断点跟进。</p><p><strong>快捷键：</strong></p><ul><li>f10 跟进当前函数的下一行</li><li>f11 继续跟进当前代码行调用的另一个函数</li><li>Shift + f11 跳出当前函数回到前一个执行函数断点</li><li>Ctrl + \  忽略当前断点跟进直到有下一个断点继续停住</li><li>Ctrl + f8  暂时禁用全部断点</li></ul><p><img src="/images/debug/4.png" alt="breakpoint_img"><br><strong>技巧：</strong></p><ol><li>鼠标放在<code>B</code>处任意变量名上即可出现当前变量此时的值, 以及接受的参数<code>selected_smallid</code>和<code>data</code>,编写函数时尽量的减少全局变量，而是把数据以参数的形式传进来，这样也方便调试。</li><li>有时我们已经在多处添加的断点，如果一个个的去取消必须要找到它们（浪费时间），右侧<code>C</code>处即是全部断点的集合，右击可以单独移除、禁用、激活某个断点且不需要找它的位置，也可以移除全部，太方便了有木有!</li><li>跟进断点有时候需要跳到<code>ToolFunc.getTargetItemData</code>方法内部继续跟进<code>f11</code>，但是很多时候发现这个函数不是自己写的，代码太多太多，仿佛陷进深渊回不来了。那就需要跳出<code>shift + f11</code>, 但有时候依然跳不出来怎么办？<br>那就如图在<code>151058</code>处或自己想重点看的那一行打个断点，然后<code>ctrl + \</code>，完美！</li><li><code>C</code>那一栏还有<code>Call Stack</code>也很重要，它记录着函数的调用栈，就是来到当前函数前都执行过哪些函数</li><li><code>D</code>处，有些断点甚至刻意不需要知道它在哪一行，直接在<code>Event Listener Breakpoints</code>栏内指定该响应的事件即可断点（主要用在别人的页面）</li><li>打了很多断点，某一次测试想让他们不生效，但是又不能删除以免过一会儿还要一个个添加断点，这是后<code>Ctrl + f8</code>灵活的停用和激活断点非常666！</li></ol><h3 id="3-打印console："><a href="#3-打印console：" class="headerlink" title="3.打印console："></a>3.打印console：</h3><p><img src="/images/debug/5.png" alt="console_img"><br>打印信息是最清楚了,那些<code>console.info</code>之类的就不说了。</p><p><strong>技巧：</strong></p><ol><li>连着上一个断点继续说，这边控制台起始就相当于进入到该断点的作用域了，比如直接在控制台<code>A</code>输入<code>targetData</code>回车即可看到它的数据内容<code>B</code>。打印<code>this</code>也是对的，<code>this</code>都给你了想干嘛请自便。</li><li>在<code>B</code>上右击选择<code>Store as global variable</code>，随即便打印<code>C</code>。顾名思义把对象的应用拷贝了一份给全局，属性名<code>temp1</code>,如果继续在其它打印的对象上再来一次，则出现<code>temp2</code>，以此类推！</li><li>既然是对象的引用那么<code>E</code>可以查看对象某个属性值，甚至是修改它<code>F</code>，然后继续断点跟进，这样省去了进来的数据不是想要测试的数据还必须重新来的麻烦！</li></ol><h2 id="结语："><a href="#结语：" class="headerlink" title="结语："></a>结语：</h2><p>暂且就说这么多，有机会再添加吧，byebye~~~！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网上也有很多关于调试的技巧，小编断断续续也看过不少，可能由于技术以及所遇场景有限，很多技巧看完就忘了。能记住的也就是平时经常用的一些小技巧，废话少说直接来！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="//litten.me/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="调试" scheme="//litten.me/tags/%E8%B0%83%E8%AF%95/"/>
+    
+      <category term="javascript" scheme="//litten.me/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LayaBox源码解析-Handler</title>
+    <link href="//litten.me/2018/03/09/laya-box-Handler/"/>
+    <id>//litten.me/2018/03/09/laya-box-Handler/</id>
+    <published>2018-03-09T03:30:09.000Z</published>
+    <updated>2018-03-17T02:19:02.209Z</updated>
+    
+    <content type="html"><![CDATA[<p>(本文是as和js混合，其实两者差不多，一个妈生的。^_^!!)</p><h3 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h3><blockquote><p>推荐使用 <code>Handler.create()</code> 方法从对象池创建，减少对象创建消耗。<br>创建的 Handler 对象不再使用后，可以使用 <code>Handler.recover()</code>将其回收到对象池</p></blockquote><p><strong>注意：</strong> 由于鼠标事件也用本对象池，不正确的回收及调用，可能会影响鼠标事件的执行。</p><a id="more"></a><h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><ul><li>绑定作用域</li><li>携带参数</li><li>是否执行一次以及回收</li></ul><p>我用普通函数加上<code>call</code>、<code>apply</code>修正<code>this</code>指向外加标志符之类的也能现实为什么非要用它呢？<br>当应用程序变得越来越庞大和复杂时，自然而然就需要有一个统一管理的处理器。比如在A处定义好函数、作用域和参数但是此时不想立刻执行，待到B处再执行，则作用就体现出来，以及参数可以两处进行累加、对函数的及时回收将变得异常方便。把这些细节处理隐藏起来，暴露在外可以做到简洁，且对新手使用更加友好！</p><h3 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h3><ul><li><code>static</code> _pool:Array = [];  //对象池用于缓存节约资源</li><li><code>static</code> _gid:int = 1;       //用于计数id</li><li>caller:*;          //执行域也叫执行上下文对象</li><li>method:Function;  //处理方法（主角）</li><li>args:Array;          //携带的参数</li><li>once:Boolean = false;  //是否只执行一次</li><li>_id:int = 0;      //携带的id</li></ul><h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><p><strong>1. create:</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">create</span><span class="params">(caller:*, method:Function, args:Array = null, once:Boolean = true)</span>:Handler </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (_pool.length) <span class="keyword">return</span> _pool.pop().setTo(caller, method, args, once);</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> Handler(caller, method, args, once);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>新建handler实例的推荐方式是<code>Handler.create</code>,原因在于方法第一步的判断，如果缓存对象池内有缓存则直接从缓存取出从而节约资源。接下来不论是<code>setTo</code>还是<code>new Handler</code>作用是一样的，后者也是在调用前者。</p><p><strong>2. setTo:</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setTo</span><span class="params">(caller:*, method:Function, args:Array, once:Boolean)</span>:Handler </span>&#123;</span><br><span class="line">_id = _gid++;</span><br><span class="line"><span class="keyword">this</span>.caller = caller;</span><br><span class="line"><span class="keyword">this</span>.method = method;</span><br><span class="line"><span class="keyword">this</span>.args = args;</span><br><span class="line"><span class="keyword">this</span>.once = once;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>首先静态属性<code>_gid</code>累计自增作为实例属性<code>_id</code>的值，表示每个实例有一个自己独一无二的<code>_id</code>，以及给各自实例属性赋值。</p><p><strong>3. run:</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span>:* </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (method == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> id:int = _id;</span><br><span class="line"><span class="keyword">var</span> result:* = method.apply(caller, args);</span><br><span class="line">_id === id &amp;&amp; once &amp;&amp; recover();</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><code>method</code>就是最初传进来的处理函数，通过<code>method.apply(caller, args)</code>传进<code>this</code>指向以及携带的参数列表<code>args</code>。且该处理函数的返回值同时也作为<code>run</code>的返回值返回。<code>_id === id &amp;&amp; once &amp;&amp; recover();</code>保证id不变的情况下如果是一次性处理函数则及时<code>recover</code>回收。</p><p><strong>4. runWith:</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">runWith</span><span class="params">(data:*)</span>:* </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (method == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">var</span> id:int = _id;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">var</span> result:* = method.apply(caller, args);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (args) result = method.apply(caller, args.concat(data));</span><br><span class="line">    <span class="keyword">else</span> result = method.apply(caller, data);</span><br><span class="line">    _id === id &amp;&amp; once &amp;&amp; recover();</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><code>runWith</code>与<code>run</code>的区别就是它可以继续传入参数与之前的参数通过<code>args.concat(data)</code>累加作为<code>method.apply</code>执行的第二个参数。<br><strong>注意：</strong><code>concat</code>方法的参数可以是数组也可以是非数组。数组的话就只是展开一维数组，非数组的话就直接当做<code>length</code>为1的一维数组合并。</p><p><strong>5. recover:</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">recover</span><span class="params">()</span>:void </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_id &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        _id = <span class="number">0</span>;</span><br><span class="line">        _pool.push(clear());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>但凡<code>_id</code>大于0的则需要回收，因为已经回收的<code>_id</code>随即赋值为0了，并且回收扔进该类的静态属性<code>_pool</code>数组对象池中，以待下次利用。</p><p><strong>6. clear:</strong><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">clear</span><span class="params">()</span>:Handler </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.caller = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.method = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.args = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>清除自身但是<code>id</code>并不在这边清0，那是交给回收时清除，这也很好理解只是清除自身，可能没用了但是他还在这，并没有回收它，故<code>id</code>目前依然保留。</p><h3 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h3><ol><li>Laya.loader.load(url, Handler.create(this, function(){}));</li><li>node.mouseHandler = Handler.create(this, function(){}, null, false);</li><li>list.selectHandler = Handler.create(this, function(){}, null, false);</li></ol><p><strong>常见误区：</strong><br>当需要多次执行时的场景时，<code>Handler.create()</code>方法的第四个参数是否是一次性，当不传该参数默认是<code>true</code>,事件则只会相应一次。常出现在给元素添加事件和加载资源时的进度条更新的回调函数。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;(本文是as和js混合，其实两者差不多，一个妈生的。^_^!!)&lt;/p&gt;
+&lt;h3 id=&quot;概述：&quot;&gt;&lt;a href=&quot;#概述：&quot; class=&quot;headerlink&quot; title=&quot;概述：&quot;&gt;&lt;/a&gt;概述：&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;推荐使用 &lt;code&gt;Handler.create()&lt;/code&gt; 方法从对象池创建，减少对象创建消耗。&lt;br&gt;创建的 Handler 对象不再使用后，可以使用 &lt;code&gt;Handler.recover()&lt;/code&gt;将其回收到对象池&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 由于鼠标事件也用本对象池，不正确的回收及调用，可能会影响鼠标事件的执行。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="//litten.me/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="javascript" scheme="//litten.me/tags/javascript/"/>
+    
+      <category term="layabox" scheme="//litten.me/tags/layabox/"/>
+    
+      <category term="actionscript" scheme="//litten.me/tags/actionscript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器的同源策略及解决方案</title>
+    <link href="//litten.me/2018/03/06/same_origin_policy/"/>
+    <id>//litten.me/2018/03/06/same_origin_policy/</id>
+    <published>2018-03-06T07:20:39.000Z</published>
+    <updated>2018-03-17T02:19:02.209Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一-含义"><a href="#一-含义" class="headerlink" title="一. 含义"></a>一. 含义</h3><p>最初是指一张网页不能读取另一张网页的cookie,除非两张网页是同源的。</p><ul><li>协议相同</li><li>域名相同</li><li>端口号相同</li></ul><a id="more"></a><p><strong>例子</strong><br><code>http://www.example.com/dir/page.html</code><br>协议是<code>http：//</code>, 域名是<code>www.example.com</code>,端口号是<code>80</code>（默认可以省略）</p><p><strong>目的</strong><br>同源政策的目的，是为了保证用户信息的安全，防止恶意的网站窃取数据。</p><p><strong>限制范围</strong></p><ol><li>Cookie、LocalStorage 和 IndexDB 无法读取。</li><li>DOM无法获得。</li><li>AJAX无法请求</li></ol><p>虽然这些限制是必要的，但是有时很不方便，合理的用途也受到影响。下面详细介绍，如何规避上面三种限制。</p><h3 id="二-Cookie"><a href="#二-Cookie" class="headerlink" title="二. Cookie"></a>二. Cookie</h3><p>Cookie 是服务器写入浏览器的一小段信息，只有同源的网页才能共享。但是，两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置<code>document.domain</code>共享 Cookie。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.domain = &apos;example.com&apos;;</span><br></pre></td></tr></table></figure></p><p>注意，这种方法只适用于 <code>Cookie</code>和 <code>iframe</code> 窗口，<code>LocalStorage</code> 和 <code>IndexDB</code> 无法通过这种方法，规避同源政策，而要使用下文介绍的<code>PostMessage API</code>。</p><p>另外，服务器也可以在设置<code>Cookie</code>的时候，指定<code>Cookie</code>的所属域名为一级域名，比如<code>.example.com</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: key=value; domain=.example.com; path=/</span><br></pre></td></tr></table></figure></p><p>这样的话，二级域名和三级域名不用做任何设置，都可以读取这个Cookie。</p><h3 id="三-iframe"><a href="#三-iframe" class="headerlink" title="三. iframe"></a>三. iframe</h3><p>如果两个网页不同源，就无法拿到对方的<code>DOM</code>。典型的例子是<code>iframe</code>窗口和<code>window.open</code>方法打开的窗口，它们与父窗口无法通信。</p><p>如果两个窗口一级域名相同，只是二级域名不同，那么设置上一节介绍的<code>document.domain</code>属性，就可以规避同源政策，拿到<code>DOM</code>。</p><p>对于完全不同源的网站，目前有三种方法，可以解决跨域窗口的通信问题。</p><ol><li>片段标识符</li><li>window.name</li><li>postmessage 垮文档通信api</li></ol><h5 id="1-片段标识符"><a href="#1-片段标识符" class="headerlink" title="1.片段标识符"></a>1.片段标识符</h5><p>（fragment identifier）指的是，URL的#号后面的部分，比如<code>http://example.com/x.html#fragment</code>的<code>#fragment</code>。如果只是改变片段标识符，页面不会重新刷新。也称做哈希值</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window.onhashchange = checkMessage;</span><br><span class="line"></span><br><span class="line">function checkMessage() &#123;</span><br><span class="line">  var message = window.location.hash;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="2-window-name"><a href="#2-window-name" class="headerlink" title="2.window.name"></a>2.window.name</h5><p>浏览器窗口有window.name属性。这个属性的最大特点是，无论是否同源，只要在同一个窗口里，前一个网页设置了这个属性，后一个网页可以读取它。</p><p>父窗口先打开一个子窗口，载入一个不同源的网页，该网页将信息写入window.name属性。<br>这种方法的优点是，window.name容量很大，可以放置非常长的字符串；缺点是必须监听子窗口window.name属性的变化，影响网页性能。</p><h5 id="3-window-postMessage"><a href="#3-window-postMessage" class="headerlink" title="3.window.postMessage"></a>3.window.postMessage</h5><p>上面两种方法都属于破解，HTML5为了解决这个问题，引入了一个全新的API：跨文档通信 API（Cross-document messaging）。</p><p>这个API为window对象新增了一个window.postMessage方法，允许跨窗口通信，不论这两个窗口是否同源。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> popup = <span class="built_in">window</span>.open(<span class="string">'http://bbb.com'</span>, <span class="string">'title'</span>);</span><br><span class="line">popup.postMessage(<span class="string">'Hello World!'</span>, <span class="string">'http://bbb.com'</span>);</span><br></pre></td></tr></table></figure></p><p><code>postMessage</code>方法的第一个参数是具体的信息内容，第二个参数是接收消息的窗口的源（origin），即<code>&quot;协议 + 域名 + 端口&quot;</code>。也可以设为*，表示不限制域名，向所有窗口发送。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子窗口向父窗口发送消息的写法类似。</span></span><br><span class="line"><span class="built_in">window</span>.opener.postMessage(<span class="string">'Nice to see you'</span>, <span class="string">'http://aaa.com'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//父窗口和子窗口都可以通过message事件，监听对方的消息。</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.data);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure><p>message事件的事件对象event，提供以下三个属性。</p><ul><li>event.source：发送消息的窗口</li><li>event.origin: 消息发向的网址</li><li>event.data: 消息内容</li></ul><p><code>event.origin</code>属性可以过滤不是发给本窗口的消息。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, receiveMessage);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">receiveMessage</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (event.origin !== <span class="string">'http://aaa.com'</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">if</span> (event.data === <span class="string">'Hello World'</span>) &#123;</span><br><span class="line">      event.source.postMessage(<span class="string">'Hello'</span>, event.origin);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event.data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="四-AJAX"><a href="#四-AJAX" class="headerlink" title="四.AJAX"></a>四.AJAX</h3><p>同源政策规定，AJAX请求只能发给同源的网址，否则就报错。</p><p>除了架设服务器代理（浏览器请求同源服务器，再由后者请求外部服务），有三种方法规避这个限制。</p><ol><li>JSONP</li><li>WebSocket</li><li>CORS</li></ol><h5 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1.JSONP"></a>1.JSONP</h5><p>JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。</p><p>它的基本思想是，网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。</p><p>首先，网页动态插入元素，由它向跨源网址发出请求。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addScriptTag</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">  script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">  script.src = src;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  addScriptTag(<span class="string">'http://example.com/ip?callback=foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Your public IP address is: '</span> + data.ip);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>上面代码通过动态添加<code>&lt;script&gt;</code>元素，向服务器example.com发出请求。注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于JSONP是必需的。</p><p>服务器收到这个请求以后，会将数据放在回调函数的参数位置返回。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo(&#123;</span><br><span class="line">  <span class="string">"ip"</span>: <span class="string">"8.8.8.8"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><p>由于<code>&lt;script&gt;</code>元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的JSON数据被视为JavaScript对象，而不是字符串，因此避免了使用JSON.parse的步骤。</p><h5 id="2-WebSocket"><a href="#2-WebSocket" class="headerlink" title="2.WebSocket"></a>2.WebSocket</h5><p>WebSocket是一种通信协议，使用<code>ws://（非加密）</code>和<code>wss://（加密）</code>作为协议前缀。该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。</p><h5 id="3-CORS"><a href="#3-CORS" class="headerlink" title="3.CORS"></a>3.CORS</h5><p>CORS是跨源资源分享（Cross-Origin Resource Sharing）的缩写。它是W3C标准，是跨源AJAX请求的根本解决方法。相比JSONP只能发GET请求，CORS允许任何类型的请求。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一-含义&quot;&gt;&lt;a href=&quot;#一-含义&quot; class=&quot;headerlink&quot; title=&quot;一. 含义&quot;&gt;&lt;/a&gt;一. 含义&lt;/h3&gt;&lt;p&gt;最初是指一张网页不能读取另一张网页的cookie,除非两张网页是同源的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;协议相同&lt;/li&gt;
+&lt;li&gt;域名相同&lt;/li&gt;
+&lt;li&gt;端口号相同&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="//litten.me/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Cookie" scheme="//litten.me/tags/Cookie/"/>
+    
+      <category term="AJAX" scheme="//litten.me/tags/AJAX/"/>
+    
+      <category term="Iframe" scheme="//litten.me/tags/Iframe/"/>
+    
+  </entry>
+  
+</feed>
