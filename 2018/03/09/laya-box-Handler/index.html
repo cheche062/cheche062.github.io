@@ -9,13 +9,13 @@
   <title>LayaBox源码解析-Handler | CheChe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="(本文是as和js混合，其实两者差不多，一个妈生的。^_^!!) 概述： 推荐使用 Handler.create() 方法从对象池创建，减少对象创建消耗。创建的 Handler 对象不再使用后，可以使用 Handler.recover()将其回收到对象池  注意： 由于鼠标事件也用本对象池，不正确的回收及调用，可能会影响鼠标事件的执行。">
-<meta name="keywords" content="javascript,layabox,actionscript">
+<meta name="keywords" content="JavaScript,LayaBox,ActionScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LayaBox源码解析-Handler">
 <meta property="og:url" content="//litten.me/2018/03/09/laya-box-Handler/index.html">
 <meta property="og:site_name" content="CheChe的博客">
 <meta property="og:description" content="(本文是as和js混合，其实两者差不多，一个妈生的。^_^!!) 概述： 推荐使用 Handler.create() 方法从对象池创建，减少对象创建消耗。创建的 Handler 对象不再使用后，可以使用 Handler.recover()将其回收到对象池  注意： 由于鼠标事件也用本对象池，不正确的回收及调用，可能会影响鼠标事件的执行。">
-<meta property="og:updated_time" content="2018-03-17T02:19:02.209Z">
+<meta property="og:updated_time" content="2018-03-24T01:49:10.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LayaBox源码解析-Handler">
 <meta name="twitter:description" content="(本文是as和js混合，其实两者差不多，一个妈生的。^_^!!) 概述： 推荐使用 Handler.create() 方法从对象池创建，减少对象创建消耗。创建的 Handler 对象不再使用后，可以使用 Handler.recover()将其回收到对象池  注意： 由于鼠标事件也用本对象池，不正确的回收及调用，可能会影响鼠标事件的执行。">
@@ -252,15 +252,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">layabox</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">LayaBox</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">actionscript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ActionScript</a>
         		</li>
       		
 		</ul>
@@ -484,15 +484,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">layabox</a>
+                <a href="javascript:void(0)" class="js-tag color3">LayaBox</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">actionscript</a>
+                <a href="javascript:void(0)" class="js-tag color3">ActionScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,6 +512,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">有趣</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">艺人</a>
               </li>
              
@@ -516,7 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">有趣</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
             
             <div class="clearfix"></div>

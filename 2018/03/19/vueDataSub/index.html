@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>tags | CheChe的博客</title>
+  <title>Vue数据绑定 | CheChe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="比你优秀的人还在努力，那你努力还有什么用？">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="//litten.me/tags/index.html">
+  <meta name="description" content="关于vue数据绑定的极简原理">
+<meta name="keywords" content="JavaScript,Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue数据绑定">
+<meta property="og:url" content="//litten.me/2018/03/19/vueDataSub/index.html">
 <meta property="og:site_name" content="CheChe的博客">
-<meta property="og:description" content="比你优秀的人还在努力，那你努力还有什么用？">
-<meta property="og:updated_time" content="2018-03-17T02:19:02.225Z">
+<meta property="og:description" content="关于vue数据绑定的极简原理">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/8/2/c00a07c463dd341d5c0e731a9ebdca52?imageView2/1/w/800/h/600/q/85/format/webp/interlace/1">
+<meta property="og:updated_time" content="2018-03-24T01:49:10.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="比你优秀的人还在努力，那你努力还有什么用？">
+<meta name="twitter:title" content="Vue数据绑定">
+<meta name="twitter:description" content="关于vue数据绑定的极简原理">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/8/2/c00a07c463dd341d5c0e731a9ebdca52?imageView2/1/w/800/h/600/q/85/format/webp/interlace/1">
   
     <link rel="alternative" href="/atom.xml" title="CheChe的博客" type="application/atom+xml">
   
@@ -154,27 +156,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-vueDataSub" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      Vue数据绑定
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-02-28T04:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+        <a href="/2018/03/19/vueDataSub/" class="archive-article-date">
+  	<time datetime="2018-03-19T06:11:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="关于vue数据绑定的极简原理"><a href="#关于vue数据绑定的极简原理" class="headerlink" title="关于vue数据绑定的极简原理"></a>关于vue数据绑定的极简原理</h4><p><img src="https://user-gold-cdn.xitu.io/2017/8/2/c00a07c463dd341d5c0e731a9ebdca52?imageView2/1/w/800/h/600/q/85/format/webp/interlace/1" width="150px" height="150px" alt="vue logo" title="vue logo"></p>
+<a id="more"></a>
+<p><strong><em>dep.js</em></strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对订阅者进行收集、存储和通知</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @class      Dep (name)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Dep</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">this</span>.subs = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    addSub(sub) &#123;</span><br><span class="line">        <span class="keyword">this</span>.subs.push(sub);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    notify() &#123;</span><br><span class="line">        <span class="comment">// 通知所有的订阅者（Watcher），触发订阅者的相应逻辑处理</span></span><br><span class="line">        <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="params">sub</span> =&gt;</span> sub.update());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Dep.target = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>Dep</code>类用来实例一个个的收集器，每个收集器用来存储对单个数据的订阅者，当该项数据发生变化时统一的去通知他们</li>
+<li><code>Dep.target</code>用来暂存当前订阅者</li>
+</ul>
+<p><strong><em>observer.js</em></strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Dep <span class="keyword">from</span> <span class="string">'./dep'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj, key, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> dep = <span class="keyword">new</span> Dep();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 给当前属性的值添加监听</span></span><br><span class="line">    observer(val);</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">        enumerable: <span class="literal">true</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        get: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'get value: '</span>, val)</span><br><span class="line">            <span class="keyword">if</span> (Dep.target) &#123;</span><br><span class="line">                dep.addSub(Dep.target)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> val;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        set: <span class="function">(<span class="params">newVal</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (val === newVal) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'无需更新'</span>)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'new value setted: '</span>, newVal)</span><br><span class="line">            val = newVal;</span><br><span class="line">            dep.notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">observer</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!value || <span class="keyword">typeof</span> value !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Object</span>.keys(value).forEach(<span class="function"><span class="params">key</span> =&gt;</span> defineReactive(value, key, value[key]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>核心方法<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">Object.defineProperty</a>定义对象的属性访问器，从而达到对数据改变的监听。</li>
+<li><code>observer</code>首先判断数据是否是对象，<code>Object.keys</code>遍历对象的每个字段对其执行<code>defineReactive</code>添加监听</li>
+<li><code>defineReactive</code>首先进来实例化<code>Dep</code>，单个数据监听的收集器。这里再次对值<code>observer</code>实际上是类似递归，数据对象深层嵌套时继续监听。</li>
+<li><code>enumerable、configurable</code>可枚举、可配置。<code>get</code>获取属性时，会把监听者添加到<code>dep</code>中，这边实际上是个闭包。<code>dep</code>收集器会常驻内存保留着。</li>
+<li>当数据<code>set</code>设置时首先判断新值<code>newVal</code>是否与与旧值<code>val</code>相等，相等则无需更新，这边的旧值<code>val</code>也就是形参<code>val</code>也属于闭包。新旧值不等时则接下来由<code>dep.notify</code>来通知所有的监听者</li>
+</ul>
+<p><strong><em>watcher.js</em></strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Dep <span class="keyword">from</span> <span class="string">'./dep'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Watcher</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(vm, expOrFn, cb) &#123;</span><br><span class="line">        <span class="keyword">this</span>.vm = vm; <span class="comment">//vue数据主体</span></span><br><span class="line">        <span class="keyword">this</span>.expOrFn = expOrFn; <span class="comment">// 监听的字段</span></span><br><span class="line">        <span class="keyword">this</span>.cb = cb; <span class="comment">// 数据变化后的回调</span></span><br><span class="line">        <span class="keyword">this</span>.val = <span class="keyword">this</span>.get(); <span class="comment">// 初始化获取数据</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 订阅数据更新时调用</span></span><br><span class="line">    update() &#123;</span><br><span class="line">        <span class="keyword">let</span> val = <span class="keyword">this</span>.get();</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">        <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm, <span class="keyword">this</span>.val);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get() &#123;</span><br><span class="line">        <span class="comment">// 当前订阅者(Watcher)读取被订阅数据的最新更新后的值时，通知订阅者管理员收集当前订阅者</span></span><br><span class="line">        Dep.target = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">let</span> val = <span class="keyword">this</span>.vm._data[<span class="keyword">this</span>.expOrFn];</span><br><span class="line"></span><br><span class="line">        Dep.target = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>get</code>获取此刻的数据，首先会将自身实例挂在到<code>Dep.target</code>，其目的是访问<code>this.vm._data[this.expOrFn]</code>数据时触发监听器<code>observer.js</code>中，然后再重置<code>Dep.target</code>;</li>
+<li><code>update</code>方法，数据更新后会由<code>dep</code>通知触发。从而执行回调<code>this.cb</code>，且把新值<code>this.val</code>传进回调,该方法是我们的最终目的，更新视图<code>view</code>;</li>
+</ul>
+<p><strong><em>vue.js</em></strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Watcher <span class="keyword">from</span> <span class="string">'./watcher'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; observer &#125; <span class="keyword">from</span> <span class="string">'./observer'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Vue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(options = &#123;&#125;) &#123;</span><br><span class="line">        <span class="keyword">this</span>.$options = options;</span><br><span class="line">        <span class="keyword">this</span>._data = <span class="keyword">this</span>.$options.data;</span><br><span class="line">        <span class="built_in">Object</span>.keys(<span class="keyword">this</span>._data).forEach(<span class="function"><span class="params">key</span> =&gt;</span> <span class="keyword">this</span>._proxy(key));</span><br><span class="line"></span><br><span class="line">        observer(<span class="keyword">this</span>._data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $watch(expOrFn, cb) &#123;</span><br><span class="line">        <span class="keyword">new</span> Watcher(<span class="keyword">this</span>, expOrFn, cb);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _proxy(key) &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>, key, &#123;</span><br><span class="line">            configurable: <span class="literal">true</span>,</span><br><span class="line">            enumerable: <span class="literal">true</span>,</span><br><span class="line">            get: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>._data[key],</span><br><span class="line">            set: <span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>._data[key] = val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>为使用方便把数据的监听同样添加到<code>Vue</code>实例中，通过<code>$watch</code>方法来定义监听的字段以及回调</li>
+</ul>
+<p><strong><em>main.js</em></strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'./vue'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> demo = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">        name: <span class="string">'cheche'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">demo.$watch(<span class="string">"name"</span>, (value) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"【update view111】: "</span>, value);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">demo.name = <span class="string">"meihao"</span>;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>最后的使用示例</li>
+</ul>
+
       
 
       
@@ -208,7 +238,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -258,7 +314,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://litten.me/2018/03/19/vueDataSub/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -270,6 +326,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2018/03/20/promise/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Promise实用理解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/17/wuxiyou/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">无锡游</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -294,7 +369,7 @@
   
 
   
-  <div id="SOHUCS" sid="" ></div> 
+  <div id="SOHUCS" sid="vueDataSub" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -330,7 +405,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
