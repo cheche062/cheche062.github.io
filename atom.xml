@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//litten.me/"/>
-  <updated>2018-03-24T01:49:10.335Z</updated>
+  <updated>2018-12-08T04:54:02.494Z</updated>
   <id>//litten.me/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rxjs乱语</title>
+    <link href="//litten.me/2018/04/08/Rxjs/"/>
+    <id>//litten.me/2018/04/08/Rxjs/</id>
+    <published>2018-04-08T07:41:36.000Z</published>
+    <updated>2018-12-08T04:54:02.494Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h3><blockquote><p>RxJS 是使用 Observables 基于可观测数据流在异步编程应用中的库，它使编写异步或基于回调的代码更容易。</p></blockquote><p>解决异步编程我们已经有了es6的Promise，但Rx是更好的方案。</p><p>优势：</p><ul><li>延迟执行</li><li>可传送多个值</li><li>可中途取消以及重试</li><li>可保留值待后续发送</li><li>函数式编程体验</li></ul><a id="more"></a><h3 id="内容："><a href="#内容：" class="headerlink" title="内容："></a>内容：</h3><h5 id="observable（可被观察对象）、producer-生产者-、observer（观察者）、operator（操作符）、subscription-可退订者"><a href="#observable（可被观察对象）、producer-生产者-、observer（观察者）、operator（操作符）、subscription-可退订者" class="headerlink" title="observable（可被观察对象）、producer (生产者)、observer（观察者）、operator（操作符）、subscription(可退订者)"></a>observable（可被观察对象）、producer (生产者)、observer（观察者）、operator（操作符）、subscription(可退订者)</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Observable &#125; <span class="keyword">from</span> <span class="string">'rxjs/Rx'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建可观察的被观察者</span></span><br><span class="line"><span class="keyword">let</span> source$ = Observable.create(<span class="function"><span class="params">observer</span> =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 生产者</span></span><br><span class="line">        <span class="keyword">let</span> producer = &#123;</span><br><span class="line">            val: <span class="number">0</span>,</span><br><span class="line">            nextValue: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.val = <span class="keyword">this</span>.val + <span class="number">1</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.val</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        observer.next(producer.nextValue())</span><br><span class="line">        observer.next(producer.nextValue())</span><br><span class="line">    &#125;, <span class="number">100</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 操作符</span></span><br><span class="line">.map(<span class="function"><span class="params">val</span> =&gt;</span> val * <span class="number">2</span>)</span><br><span class="line"><span class="comment">//观察者1</span></span><br><span class="line"><span class="keyword">let</span> observer1 = &#123;</span><br><span class="line">    next: <span class="function"><span class="params">val</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'A:'</span>, val)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//观察者2</span></span><br><span class="line"><span class="keyword">let</span> observer2 = &#123;</span><br><span class="line">    next: <span class="function"><span class="params">val</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'B:'</span> , val)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//观察者3</span></span><br><span class="line"><span class="keyword">let</span> observer2 = &#123;</span><br><span class="line">    next: <span class="function"><span class="params">val</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'B:'</span> , val)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//绑定订阅</span></span><br><span class="line">source$.subscribe(observer1)</span><br><span class="line">source$.subscribe(observer2)</span><br><span class="line"><span class="comment">// 订阅者</span></span><br><span class="line"><span class="keyword">let</span> subscription = source$.subscribe(observer3)</span><br><span class="line">subscription.unsubscribe();</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// A: 1</span></span><br><span class="line"><span class="comment">// A: 2</span></span><br><span class="line"><span class="comment">// B: 1</span></span><br><span class="line"><span class="comment">// B: 2</span></span><br></pre></td></tr></table></figure><p>上面这个例子来个初体验，通过<code>Observable.create</code>来创建一个可被观察的对象，可理解为一个数据流<code>stream</code>的开端，注意创建时给它传入的回调函数并未立刻执行，这一点需区别于Promise的立刻执行性。</p><p><code>.map()</code>是一个操作符，可将它的意义理解为对数据流进行相应的操作，并将数据流继续向下流。<strong>注意：</strong><code>map</code>操作符的返回值是一个新的<code>observable</code>也就是这里的<code>source$</code>最终的可观测对象！<br>这样实现的目的同样也具有函数式的体验，<strong>不破坏原始数据流</strong>，你可以监听之前的数据流而不受本次操作符所影响。</p><p>接下来的两个观察者<code>observer</code>当然就是监听最终数据，它是一个对象且拥有<code>next</code>方法，该方法往往就是更新视图<code>view</code>了。在对被观察者进行订阅时<code>subscribe</code>传入观察者<code>observer</code>，此时此刻传入<code>Observable.create</code>方法的回调函数才会执行，并开启一个延时100毫秒的定时器。</p><p><code>observer</code>形参可以理解为就是传入的观察者，当然它并不完全是，实际它是由Rx内部重新包装过的标准观察者，目的：一方面是为了兼容使用者的简写变得更简单，另一方面它需要功能扩展的其它全方法规范应用。调用观察者的<code>next</code>方法并给他传值，可以是异步请求的结果值送出，而这边的值也是经过了Rx包装过的通过一个生产者<code>producer</code>处理或者存储再送出，可以发现这里能向外送出多个值。数据会经过<code>map</code>处理将每个值*2，这里也体现了函数式的优势，map操作不参与内部值的生产，只参加数据的操作。</p><p><code>subscription</code>可以取消观察者的订阅！可订可退出！优于<code>promise</code>的无法中途退出的弊端</p><h3 id="实践："><a href="#实践：" class="headerlink" title="实践："></a>实践：</h3><h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><ul><li>用户向输入框输入内容则发送请求数据</li><li>限制用户的请求频率，停止输入后200毫秒后发送</li><li>过滤用户的空内容</li><li>服务端请求结果响应时间是不固定的，所以在下一个请求发出前要忽略本次请求的结果，就是后一个请求要覆盖干掉前者</li><li>将结果进行长度排序</li><li>清空输入框的内容同时展示数据</li><li>给渲染出来的数据子项添加鼠标移入移出的背景变色事件以及点击事件则删除该子项</li></ul><p><strong>具体代码：</strong></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</span><br><span class="line"><span class="keyword">import</span> Rx, &#123; Observable &#125; <span class="keyword">from</span> <span class="string">'rxjs/Rx'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; setupRxDevtools &#125; <span class="keyword">from</span> <span class="string">'rx-devtools/rx-devtools'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rx-devtools/add/operator/debug'</span>;</span><br><span class="line"></span><br><span class="line">setupRxDevtools();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> SEARCH_REPOS = <span class="string">'https://api.github.com/search/repositories?sort=stars&amp;order=desc&amp;q='</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入关键字进行异步查找并排序</span></span><br><span class="line"><span class="keyword">let</span> input = <span class="built_in">document</span>.getElementById(<span class="string">'input'</span>)</span><br><span class="line"><span class="keyword">let</span> input$ = Observable.fromEvent(input, <span class="string">'input'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> app$ = input$</span><br><span class="line">    .debounceTime(<span class="number">200</span>)</span><br><span class="line">    .debug(<span class="string">'查询'</span>)</span><br><span class="line">    .map(<span class="function"><span class="params">e</span> =&gt;</span> e.target.value)</span><br><span class="line">    .filter(<span class="function">(<span class="params">text</span>) =&gt;</span> !!text)</span><br><span class="line">    .switchMap(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Observable.create(<span class="function">(<span class="params">observer</span>) =&gt;</span> &#123;</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: SEARCH_REPOS + key,</span><br><span class="line">                success: <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> result = data.items.map(<span class="function">(<span class="params">item</span>) =&gt;</span> item.name)</span><br><span class="line">                    observer.next(result)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// outerVal就是输入框的内容值，</span></span><br><span class="line">        <span class="comment">// innerVal就是请求后的结果数据</span></span><br><span class="line">    &#125;, (outerVal, innerVal) =&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> innerVal.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.includes(outerVal))</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 长度排序</span></span><br><span class="line">    .map(<span class="function"><span class="params">data</span> =&gt;</span> data.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.length - b.length))</span><br><span class="line">    <span class="comment">// 清空内容</span></span><br><span class="line">    .do(<span class="function"><span class="params">()</span> =&gt;</span> $(<span class="string">'#list-group'</span>).html(<span class="string">''</span>))</span><br><span class="line">    <span class="comment">// 数据转流</span></span><br><span class="line">    .mergeMap(<span class="function"><span class="params">data</span> =&gt;</span> Observable.from(data))</span><br><span class="line">    <span class="comment">// 转成jq对象</span></span><br><span class="line">    .map(<span class="function"><span class="params">item</span> =&gt;</span> $(<span class="string">`&lt;li&gt;<span class="subst">$&#123;item&#125;</span>&lt;/li&gt;`</span>))</span><br><span class="line">    <span class="comment">// 添加到列表里</span></span><br><span class="line">    .do(<span class="function"><span class="params">$dom</span> =&gt;</span> $(<span class="string">'#list-group'</span>).append($dom))</span><br><span class="line">    <span class="comment">// 背景颜色切换</span></span><br><span class="line">    .mergeMap(toggleBgColor)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 背景颜色切换</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleBgColor</span>(<span class="params">$dom</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 创建鼠标移入数据流</span></span><br><span class="line">    <span class="keyword">let</span> mouseover$ = Observable.fromEvent($dom, <span class="string">'mouseover'</span>)</span><br><span class="line">    <span class="comment">// 创建鼠标移出数据流</span></span><br><span class="line">    <span class="keyword">let</span> mouseout$ = Observable.fromEvent($dom, <span class="string">'mouseout'</span>)</span><br><span class="line">    <span class="comment">// 创建鼠标点击数据流</span></span><br><span class="line">    <span class="keyword">let</span> click$ = Observable.fromEvent($dom, <span class="string">'click'</span>)</span><br><span class="line">    click$ = click$.<span class="keyword">do</span>(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">        $(e.target).remove()</span><br><span class="line">    &#125;)</span><br><span class="line">    mouseover$ = mouseover$.<span class="keyword">do</span>(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">        $(e.target).css(<span class="string">'backgroundColor'</span>, <span class="string">'green'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    mouseout$ = mouseout$.<span class="keyword">do</span>(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">        $(e.target).css(<span class="string">'backgroundColor'</span>, <span class="string">'white'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 合并数据流转为其它数据</span></span><br><span class="line">    <span class="keyword">return</span> mouseover$.merge(mouseout$, click$)</span><br><span class="line">        .map(<span class="function"><span class="params">$dom</span> =&gt;</span> $dom.target.innerHTML)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app$.subscribe(<span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure><h5 id="调试："><a href="#调试：" class="headerlink" title="调试："></a>调试：</h5><p>其中使用了用于Rx的调试工具，需要安装两个东西</p><ol><li>npm install rx-devtools –save-dev</li><li>谷歌的扩展插件<a href="https://chrome.google.com/webstore/detail/rxjs-developer-tools/dedeglckjaldaochjmnochcfamanokie" target="_blank" rel="noopener">RxJS developer tools</a></li></ol><p>使用方式如上述代码所示，使用需要注意几个要点</p><ul><li>在顶部引入并执行<code>setupRxDevtools</code>方法</li><li><code>.debug(&#39;查询&#39;)</code>方法在需要调试的流中插入即可，<code>查询</code>名字可随意取</li><li>在页面刷新前需要打开<code>Rx Devtools</code>页签，如图：</li></ul><p><img src="/images/debug/rx1.png" alt="rx1"></p><ul><li>选中”查询”当有数据流产生时会同时映射到右图，点击相应的操作符上面的玻璃球，就能看到流进该操作的实时数据便于调试。</li></ul><p><img src="/images/debug/rx2.png" alt="rx2"></p><h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ul><li>这种编程体验很优雅，通过一个个操作符将应用需求组装起来，易扩展和维护，代码看起来很简洁干净。</li><li>操作符永远不破坏原始数据流仅仅返回新的数据流，所以仍然可以监听之前的数据流，如：<code>input$</code>和<code>app$</code>，map的操作并妨碍影响对<code>input$</code>的数据监听。</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> input = <span class="built_in">document</span>.getElementById(<span class="string">'input'</span>)</span><br><span class="line"><span class="keyword">let</span> input$ = Observable.fromEvent(input, <span class="string">'input'</span>)</span><br><span class="line"><span class="keyword">let</span> app$ = input$.map(<span class="function"><span class="params">e</span> =&gt;</span> e.target.value)</span><br><span class="line"></span><br><span class="line">input$.subscribe(<span class="function"><span class="params">val</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'A'</span>, val))</span><br><span class="line">app$.subscribe(<span class="function"><span class="params">val</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'B'</span>, val))</span><br></pre></td></tr></table></figure><h3 id="相关文档："><a href="#相关文档：" class="headerlink" title="相关文档："></a>相关文档：</h3><p><a href="https://rxjs-cn.github.io/rxjs5-ultimate-cn/" target="_blank" rel="noopener">RxJS 5 基本原理</a><br><a href="http://cn.rx.js.org/" target="_blank" rel="noopener">RxJs中文文档</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;概述：&quot;&gt;&lt;a href=&quot;#概述：&quot; class=&quot;headerlink&quot; title=&quot;概述：&quot;&gt;&lt;/a&gt;概述：&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;RxJS 是使用 Observables 基于可观测数据流在异步编程应用中的库，它使编写异步或基于回调的代码更容易。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解决异步编程我们已经有了es6的Promise，但Rx是更好的方案。&lt;/p&gt;
+&lt;p&gt;优势：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;延迟执行&lt;/li&gt;
+&lt;li&gt;可传送多个值&lt;/li&gt;
+&lt;li&gt;可中途取消以及重试&lt;/li&gt;
+&lt;li&gt;可保留值待后续发送&lt;/li&gt;
+&lt;li&gt;函数式编程体验&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="//litten.me/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="//litten.me/tags/JavaScript/"/>
+    
+      <category term="Rxjs" scheme="//litten.me/tags/Rxjs/"/>
+    
+  </entry>
   
   <entry>
     <title>Promise实用理解</title>
@@ -98,9 +133,9 @@
     <link href="//litten.me/2018/03/17/my_home/"/>
     <id>//litten.me/2018/03/17/my_home/</id>
     <published>2018-03-17T02:19:02.210Z</published>
-    <updated>2018-03-24T01:49:10.334Z</updated>
+    <updated>2018-12-08T05:11:36.534Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>Hejianbo</li><li>Liumeihao</li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>Hejianbo</li><li>Liumeihao</li><li>Heyujia</li></ul>]]></content>
     
     <summary type="html">
     
@@ -109,6 +144,7 @@
         &lt;ul&gt;
 &lt;li&gt;Hejianbo&lt;/li&gt;
 &lt;li&gt;Liumeihao&lt;/li&gt;
+&lt;li&gt;Heyujia&lt;/li&gt;
 &lt;/ul&gt;
 
       
@@ -119,40 +155,6 @@
     
     
       <category term="有趣" scheme="//litten.me/tags/%E6%9C%89%E8%B6%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TVXQ</title>
-    <link href="//litten.me/2018/03/17/tvxq/"/>
-    <id>//litten.me/2018/03/17/tvxq/</id>
-    <published>2018-03-17T02:19:02.210Z</published>
-    <updated>2018-03-24T01:49:10.336Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/five.jpg" width="50%" height="50%"></p><ul><li>uknow</li><li>max</li><li>xia</li><li>hero</li><li>micky</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/images/five.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;uknow&lt;/li&gt;
-&lt;li&gt;max&lt;/li&gt;
-&lt;li&gt;xia&lt;/li&gt;
-&lt;li&gt;hero&lt;/li&gt;
-&lt;li&gt;micky&lt;/li&gt;
-&lt;/ul
-      
-    
-    </summary>
-    
-      <category term="音乐" scheme="//litten.me/categories/%E9%9F%B3%E4%B9%90/"/>
-    
-    
-      <category term="艺人" scheme="//litten.me/tags/%E8%89%BA%E4%BA%BA/"/>
-    
-      <category term="舞蹈" scheme="//litten.me/tags/%E8%88%9E%E8%B9%88/"/>
     
   </entry>
   
