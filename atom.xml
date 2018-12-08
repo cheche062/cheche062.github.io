@@ -45,9 +45,9 @@
       <category term="web前端" scheme="//litten.me/categories/web%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="JavaScript" scheme="//litten.me/tags/JavaScript/"/>
-    
       <category term="Rxjs" scheme="//litten.me/tags/Rxjs/"/>
+    
+      <category term="JavaScript" scheme="//litten.me/tags/JavaScript/"/>
     
   </entry>
   
@@ -176,9 +176,9 @@
       <category term="web前端" scheme="//litten.me/categories/web%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="调试" scheme="//litten.me/tags/%E8%B0%83%E8%AF%95/"/>
-    
       <category term="JavaScript" scheme="//litten.me/tags/JavaScript/"/>
+    
+      <category term="调试" scheme="//litten.me/tags/%E8%B0%83%E8%AF%95/"/>
     
   </entry>
   
