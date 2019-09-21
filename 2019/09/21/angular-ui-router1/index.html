@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="//litten.me">
   <title>Angular-ui-router入门 | CheChe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ui-router是AngularUI库最有用的组件之一，它是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。  小试牛刀在开始之前需要安装一下本地服务：123npm install http-server -g  //全局安装模块http-server -c-1 -o    //强制浏览器不缓存，确保每次代码修改的更新 首先是项目结构1234567|-- app.js|-">
-<meta name="keywords" content="JavaScript,AngularJs">
+  <meta name="description" content="angular-ui-router是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。">
+<meta name="keywords" content="AngularJs,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular-ui-router入门">
 <meta property="og:url" content="//litten.me/2019/09/21/angular-ui-router1/index.html">
 <meta property="og:site_name" content="CheChe的博客">
-<meta property="og:description" content="ui-router是AngularUI库最有用的组件之一，它是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。  小试牛刀在开始之前需要安装一下本地服务：123npm install http-server -g  //全局安装模块http-server -c-1 -o    //强制浏览器不缓存，确保每次代码修改的更新 首先是项目结构1234567|-- app.js|-">
-<meta property="og:updated_time" content="2019-09-21T08:22:26.906Z">
+<meta property="og:description" content="angular-ui-router是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。">
+<meta property="og:updated_time" content="2019-09-21T08:36:56.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular-ui-router入门">
-<meta name="twitter:description" content="ui-router是AngularUI库最有用的组件之一，它是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。  小试牛刀在开始之前需要安装一下本地服务：123npm install http-server -g  //全局安装模块http-server -c-1 -o    //强制浏览器不缓存，确保每次代码修改的更新 首先是项目结构1234567|-- app.js|-">
+<meta name="twitter:description" content="angular-ui-router是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。">
   
     <link rel="alternative" href="/atom.xml" title="CheChe的博客" type="application/atom+xml">
   
@@ -169,8 +169,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>ui-router是AngularUI库最有用的组件之一，它是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。</p>
+<p>angular-ui-router是一个第三方路由框架，允许通过状态机制组织接口，而不是简单的URL路由。</p>
 </blockquote>
+<a id="more"></a>
 <h1 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h1><p><strong>在开始之前需要安装一下本地服务：</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install http-server -g  //全局安装模块</span><br><span class="line"></span><br><span class="line">http-server -c-1 -o    //强制浏览器不缓存，确保每次代码修改的更新</span><br></pre></td></tr></table></figure></p>
 <p>首先是项目结构<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|-- app.js</span><br><span class="line">|-- index.html</span><br><span class="line">|-- libs</span><br><span class="line">|   |-- angular-ui-router.js</span><br><span class="line">|   |-- angular.js</span><br><span class="line">|-- view</span><br><span class="line">    |-- about.html</span><br></pre></td></tr></table></figure></p>
 <p>其次是html结构<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"libs/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"libs/angular-ui-router.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">'home'</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">'about'</span>&gt;</span>关于<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">'news'</span>&gt;</span>消息<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">ui-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -237,11 +238,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJs</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -452,7 +453,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Rxjs</a>
+                <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,11 +461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+                <a href="javascript:void(0)" class="js-tag color5">Rxjs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJs</a>
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
               <li class="article-tag-list-item">
